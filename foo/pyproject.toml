@@ -1,0 +1,18 @@
+[project]
+name = "foo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bar",
+]
+
+[tool.uv.sources]
+bar = { workspace = true }
+
+[tool.uv]
+package = true
+
+[project.scripts]
+hello = "hello:main"

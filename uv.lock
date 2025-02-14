@@ -1,0 +1,30 @@
+version = 1
+requires-python = ">=3.12"
+
+[manifest]
+members = [
+    "bar",
+    "foo",
+    "monorepo",
+]
+
+[[package]]
+name = "bar"
+version = "0.1.0"
+source = { editable = "bar" }
+
+[[package]]
+name = "foo"
+version = "0.1.0"
+source = { editable = "foo" }
+dependencies = [
+    { name = "bar" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "bar", editable = "bar" }]
+
+[[package]]
+name = "monorepo"
+version = "0.1.0"
+source = { virtual = "." }
